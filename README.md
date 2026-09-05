@@ -1,17 +1,5 @@
 # Where does the vocabulary spurt come from?
 
-## Contents
-
-- [Install](#install)
-- [Run it](#run-it)
-- [Test it](#test-it)
-- [How the model works](#how-the-model-works)
-- [Understanding the code](#understanding-the-code)
-- [What each result is, and where it comes from](#what-each-result-is-and-where-it-comes-from)
-- [The files](#the-files)
-- [Extending it](#extending-it)
-- [Questions worth chasing](#questions-worth-chasing)
-- [Honest limitations](#honest-limitations)
 
 Somewhere around eighteen months, most children start learning words much faster
 than they were before. This is usually called the vocabulary spurt or the
@@ -29,11 +17,32 @@ looks exactly like a vocabulary spurt.
 The approach is due to Bob McMurray (2007), *Defusing the childhood vocabulary
 explosion*, Science 317, 631. This is not a replication of that paper: the
 parameters and the word data are our own, and the point is to get familiar with
-the style of argument rather than to reproduce specific published numbers.
+the style of argument rather than to reproduce specific published
+numbers.
+
+## Contents
+
+- [Using the code](#using-the-code)
+- [How the model works](#how-the-model-works)
+- [Understanding the code](#understanding-the-code)
+- [What each result is, and where it comes from](#what-each-result-is-and-where-it-comes-from)
+- [The files](#the-files)
+- [Extending it](#extending-it)
+- [Questions worth chasing](#questions-worth-chasing)
+- [Limitations](#limitations)
+
 
 ---
 
-## Install
+## Using the code
+
+### Using this code on Google Colab
+
+See [COLAB.md](COLAB.md).
+
+### Using this code on your local machine
+
+#### Install
 
 With pip:
 
@@ -53,9 +62,7 @@ conda activate vocab-growth
 You need Python 3.9 or newer, numpy and matplotlib. That is all. There is
 nothing to download and no network access required.
 
----
-
-## Run it
+#### Run it
 
 ```bash
 python run_all.py
@@ -72,7 +79,7 @@ python run_all.py --outdir myrun       # write somewhere else
 python run_all.py --help               # all options
 ```
 
-## Test it
+#### Testing (if you make code changes)
 
 ```bash
 python run_tests.py                    # no extra packages needed
@@ -82,7 +89,7 @@ python run_tests.py --only sampling    # just the tests matching "sampling"
 
 or, if you have pytest installed, plain `pytest` does the same thing.
 
-There are 60 tests and they take well under a minute. If they all pass, the
+There are 60 tests as of this writing and they take well under a minute. If they all pass, the
 model is behaving the way it is supposed to.
 
 ---
@@ -281,36 +288,10 @@ python experiments/example_new_distribution.py
 python experiments/example_parameter_sweep.py
 ```
 
----
-
-## Questions worth chasing
-
-- The model predicts that growth **decelerates** at the end, once the easy words
-  are used up. Does that actually happen in children? What would you need to
-  measure to find out?
-- The `exponential` distribution does not produce acceleration. Look at its
-  shape and work out why, then predict which other distributions will fail
-  before you run them.
-- `bimodal` difficulty gives two spurts. Is there any evidence for more than one
-  spurt in real vocabulary growth?
-- The model gives every word the same constant learning rate. What would change
-  if the rate itself varied between words? Would the argument survive?
-- The frequency-based version uses log frequency. What happens with raw
-  frequency instead, and which is the more defensible choice?
 
 ---
 
-## Honest limitations
+##  Limitations
 
-Read `Issues.md`. It records every judgement call made while building this,
-what the alternatives were, and what the consequences are. The most important
-ones:
-
-- The default synthetic frequency lists were chosen to illustrate a pattern, not
-  measured from any corpus. The difference between the two registers in
-  `fig4` for the synthetic output is a property of parameters we picked.
-- "Time steps" are not calibrated to real time, so nothing here predicts *when*
-  a spurt should happen, only what shape it should have.
-- Showing that a simple model *can* produce a spurt does not show that this is
-  how children actually work. It shows that the spurt is not by itself evidence
-  for anything more complicated.
+`Issues.md` records every judgement call made while building this,
+what the alternatives were, and what the consequences are. 
