@@ -1,0 +1,10 @@
+# Core requirements. Install with:
+#     pip install -r requirements.txt
+#
+# Only numpy and matplotlib are needed to run the model and produce figures.
+numpy>=1.24
+matplotlib>=3.6
+
+# Optional. The test suite runs without it via `python run_tests.py`,
+# but `pytest` gives nicer output if you have it.
+pytest>=7.0

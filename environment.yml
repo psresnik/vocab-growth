@@ -1,0 +1,11 @@
+# Conda environment. Create it with:
+#     conda env create -f environment.yml
+#     conda activate vocab-growth
+name: vocab-growth
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy>=1.24
+  - matplotlib>=3.6
+  - pytest>=7.0

@@ -1,0 +1,40 @@
+Vocabulary growth model - run log
+timestamp: 2026-09-04T15:51:41.507313
+python: 3.11.16
+platform: macOS-14.4.1-arm64-arm-64bit
+numpy: 2.4.6
+
+settings:
+  datadir = data
+  n_steps = 7000
+  n_words = 10000
+  outdir = output
+  quick = False
+  seed = 20240617
+
+constants from config.py:
+  ADULT_ZIPF_EXPONENT = 1.0
+  ADULT_ZIPF_OFFSET = 0.0
+  BENEFIT_SHIFT_PER_WORD = -0.1
+  CHILD_ZIPF_EXPONENT = 1.8
+  CHILD_ZIPF_OFFSET = 25.0
+  COST_SHIFT_PER_WORD = 0.1
+  DATA_DIR = data
+  FREQ_BASE = 3000.0
+  FREQ_SCALE = 800.0
+  MAX_SAMPLING_STEPS = 400000
+  MIN_THRESHOLD = 1.0
+  N_FREQUENT_WORDS = 2000
+  N_STEPS = 7000
+  N_WORDS = 10000
+  OUTPUT_DIR = output
+  RATE_WINDOW = 100
+  SAMPLING_THRESHOLD = 10
+  SEED = 20240617
+  THRESHOLD_MEAN = 4000.0
+  THRESHOLD_SD = 680.0
+
+notes:
+  frequency source (child): SYNTHETIC (Zipf-Mandelbrot, exponent=1.80, offset=25)
+  frequency source (adult): SYNTHETIC (Zipf-Mandelbrot, exponent=1.00, offset=0)
+  wordbank norms: not available, comparison figure skipped
