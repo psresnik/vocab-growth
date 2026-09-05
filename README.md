@@ -1,5 +1,18 @@
 # Where does the vocabulary spurt come from?
 
+## Contents
+
+- [Install](#install)
+- [Run it](#run-it)
+- [Test it](#test-it)
+- [How the model works](#how-the-model-works)
+- [Understanding the code](#understanding-the-code)
+- [What each result is, and where it comes from](#what-each-result-is-and-where-it-comes-from)
+- [The files](#the-files)
+- [Extending it](#extending-it)
+- [Questions worth chasing](#questions-worth-chasing)
+- [Honest limitations](#honest-limitations)
+
 Somewhere around eighteen months, most children start learning words much faster
 than they were before. This is usually called the vocabulary spurt or the
 vocabulary explosion, and the obvious explanation is that something changes in
@@ -207,8 +220,6 @@ Lines starting with `#` are comments — plain English notes for humans, ignored
 - `return` sends this final array back to whoever called the function — it's the function's output.
 
 **Big picture:** the function makes a batch of random "difficulty" numbers clustered around `mean` with spread `sd`, then makes sure none of them dip below a minimum allowed value, and hands the result back as one array.
-```
-
 
 ---
 
